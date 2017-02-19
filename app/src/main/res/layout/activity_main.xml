@@ -11,7 +11,7 @@
     tools:context="com.wyuxks.okhttp.MainActivity">
 
     <TextView
-        android:text="Hello Okhttp!"
+        android:text="二次封装的Okhttp，请求回调中进行Ui更新!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </RelativeLayout>

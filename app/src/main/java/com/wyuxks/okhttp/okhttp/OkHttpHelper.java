@@ -1,4 +1,4 @@
-package com.wyuxks.okhttp.okhttp;
+﻿package com.wyuxks.okhttp.okhttp;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -223,7 +223,7 @@ public class OkHttpHelper {
     /**
      * 对外公开的取消当前请求
      */
-    public void cancleRequest(Call call) {
+    public void cancleCurrentRequest(Call call) {
         if (call.isCanceled()) {
             call.cancel();  //取消请求
         }

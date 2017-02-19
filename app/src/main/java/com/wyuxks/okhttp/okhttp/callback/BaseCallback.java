@@ -39,7 +39,4 @@ public interface BaseCallback<T> {
      * @param e
      */
      void onError(Response response, int errorCode, Exception e);
-
-
-
 }
