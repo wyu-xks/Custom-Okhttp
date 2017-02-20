@@ -1,4 +1,4 @@
-﻿package com.wyuxks.okhttp.okhttp;
+package com.wyuxks.okhttp.okhttp;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -87,7 +87,7 @@ public class OkHttpHelper {
                     //返回成功回调
                     String resString = response.body().string();
                     if (resString.contains("false")) {
-                        //返回结果 result为false(根据实际需求请求返回的string判断)
+                        //返回结果 result为false
                         try {
                             JSONObject jsonObject = new JSONObject(resString);
                             String err_msg = jsonObject.getString("err_msg");
@@ -223,7 +223,7 @@ public class OkHttpHelper {
     /**
      * 对外公开的取消当前请求
      */
-    public void cancleCurrentRequest(Call call) {
+    public void cancleRequest(Call call) {
         if (call.isCanceled()) {
             call.cancel();  //取消请求
         }
