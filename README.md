@@ -1,12 +1,12 @@
 # Custom-Okhttp
-###对OKHttp进行过封装。具体的注意点有下面几点：  
-1、首先，OKHttp官方要求我们最好用单例模式去使用OKHttpClient类的，因此我们自定义一个OKHttpHelper类，并且使用单例模式。  
+### 对OKHttp进行过封装。具体的注意点有下面几点：  
+1、首先，OKHttp官方要求我们最好用单例模式去使用OKHttpClient类的，因此我们自定义一个OKHttpHelper类，并且使用单例模式。    
 2、对get以及post方法进行封装，主要的思想是把共同的代码抽取出来，例如代码中被抽取出来的request方法。  
-3、对外公开一些静态方法，包括get和post方法等。  
-4、Callback基类，对OKHttp的回调进行封装。这个类用里面有一个type，是方便回调中使用Gson对JSON进行解析的封装。使用Callback的时候只需要在泛型中传入类似Data 、List<Data>即可以方便地使用JSON。  
+3、对外公开一些静态方法，包括get和post方法等。    
+4、Callback基类，对OKHttp的回调进行封装。这个类用里面有一个type，是方便回调中使用Gson对JSON进行解析的封装。使用Callback的时候只需要在泛型中传入类似Data 、List<Data>即可以方便地使用JSON。    
 5、由于原来的回调不在主线程，因此我们需要使用Handler来将回调放入主线程。  
-其余的可以参照代码，有详细注释。
-###核心代码  
+其余的可以参照代码，有详细注释。  
+### 核心代码  
 ```java
 package com.wyuxks.okhttp.okhttp;
 
@@ -295,7 +295,7 @@ public class OkHttpHelper {
 
 }
 ```
-###回调的封装  
+### 回调的封装  
 ```java
 package com.wyuxks.okhttp.okhttp.callback;
 
@@ -340,8 +340,8 @@ public interface BaseCallback<T> {
      void onError(Response response, int errorCode, Exception e);
 }
 ```  
-###封装后的使用  
-首先得到OkHttpHelper的单例，然后调用get方法就可以了。由于继承了Gson，因此需要在BaseCallback的泛型中传入JSON对应的数据类型。 
+### 封装后的使用  
+首先得到OkHttpHelper的单例，然后调用get方法就可以了。由于继承了Gson，因此需要在BaseCallback的泛型中传入JSON对应的数据类型。  
 ```java
 mHttpHelper=OkHttpHelper.getinstance();
 mHttpHelper.get(请求url, new BaseCallback<List<Banner>>() {
